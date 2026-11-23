@@ -95,14 +95,25 @@ Rules:
 
 ## Creating new aliases
 
-Before writing a new alias (or subalias/snippet), check it against the
-aliases already in the repo — across all collections, not just the one
-it's going into. Look for:
+Before writing a new alias (or subalias/snippet), check its proposed
+name and functionality against **both**:
+
+1. **Aliases already in this repo** — across all collections, not just
+   the one it's going into.
+2. **Avrae's own built-in/core commands** — the commands that ship with
+   the bot itself (`!check`, `!save`, `!attack`, `!cast`, `!i`, `!r`,
+   `!g`, etc.), not just other custom aliases. Confirm via the Avrae
+   docs (cheatsheets and command references) and/or `!help <name>` in
+   Discord, which reports whether a command by that name already
+   exists.
+
+Look for:
 
 - **Naming conflicts** — a new alias/command name that collides with,
-  or is easily confused with, an existing one.
+  or is easily confused with, an existing custom alias or a built-in
+  command.
 - **Overlapping functionality** — logic that substantially duplicates
-  what an existing alias already does.
+  what an existing alias (or a built-in command) already does.
 - **Shareable logic** — if the new alias needs code that's identical or
   near-identical to part of an existing one, prefer extracting it into
   a GVAR module (Avrae's `using()` import mechanism — see the
