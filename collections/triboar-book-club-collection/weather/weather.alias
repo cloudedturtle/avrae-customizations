@@ -12,11 +12,8 @@ W = {
     8: ("Unnatural stillness", "The wind stops and birds fall silent. A distant rumble rolls across a cloudless sky. No travel penalty, but something large may be nearby.", "None. Something large may be nearby."),
 }
 
-IMAGES = {
-    8: (
-        "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/unnatural-stillness-banner.webp",
-        "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/unnatural-stillness-thumb.webp",
-    ),
+THUMBS = {
+    8: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/unnatural-stillness-thumb.webp",
 }
 
 args = &ARGS&
@@ -54,9 +51,8 @@ t, d, m = W[new]
 out = f'embed -title "Dessarin Valley Weather" -desc "**{new}. {t}**\n{d}" -f "Effects|{m}" '
 if rolls:
     out += f'-f "Rolls|{rolls}" '
-if new in IMAGES:
-    img, thumb = IMAGES[new]
-    out += f'-image "{img}" -thumb "{thumb}" '
+if new in THUMBS:
+    out += f'-thumb "{THUMBS[new]}" '
 out += f'-color #6b8fa3 -footer "{status}"'
 return out
 </drac2>

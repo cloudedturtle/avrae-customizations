@@ -33,8 +33,10 @@ effect, and (when rolled) the dice results.
 
 ## Artwork
 
-Result 8 (Unnatural stillness) includes a banner image and thumbnail,
-pulled from the shared [`images/`](../../../images) folder via
-`raw.githubusercontent.com` URLs (see `IMAGES` in `weather.alias`). Other
-results have no art yet — add entries to `IMAGES` the same way as new
+Result 8 (Unnatural stillness) includes a thumbnail, pulled from the
+shared [`images/`](../../../images) folder via a `raw.githubusercontent.com`
+URL (see `THUMBS` in `weather.alias`). No banner image is used — Discord
+fixes the embed's width and the thumbnail's position regardless, so a
+banner only added vertical height without fixing text wrapping. Other
+results have no art yet — add entries to `THUMBS` the same way as new
 art is produced.
