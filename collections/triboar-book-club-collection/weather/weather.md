@@ -29,7 +29,11 @@ the result between calls via a uvar (`dessarin_weather`).
 | 8 | Unnatural stillness | None. Something large may be nearby. |
 
 Outputs an embed with the current weather, flavor text, mechanical
-effect, and (when rolled) the dice results.
+effect, and (when rolled) the dice results. When a fresh 1d8 is actually
+rolled this call (`new`/`reroll`, or persistence breaking), the header
+reads `🎲 1d8 (8) = 8 : Unnatural stillness` instead of the plain
+`8. Unnatural stillness` — `show`, `set`, and a held persistence result
+keep the plain form since no 1d8 was rolled that call.
 
 ## Artwork
 
