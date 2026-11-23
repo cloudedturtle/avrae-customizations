@@ -30,3 +30,11 @@ the result between calls via a uvar (`dessarin_weather`).
 
 Outputs an embed with the current weather, flavor text, mechanical
 effect, and (when rolled) the dice results.
+
+## Artwork
+
+Result 8 (Unnatural stillness) includes a banner image and thumbnail,
+pulled from the shared [`images/`](../../../images) folder via
+`raw.githubusercontent.com` URLs (see `IMAGES` in `weather.alias`). Other
+results have no art yet — add entries to `IMAGES` the same way as new
+art is produced.
