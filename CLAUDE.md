@@ -92,3 +92,23 @@ Rules:
   other host.
 - Do not nest `images/` under `collections/` — it stays a single
   top-level folder.
+
+## Creating new aliases
+
+Before writing a new alias (or subalias/snippet), check it against the
+aliases already in the repo — across all collections, not just the one
+it's going into. Look for:
+
+- **Naming conflicts** — a new alias/command name that collides with,
+  or is easily confused with, an existing one.
+- **Overlapping functionality** — logic that substantially duplicates
+  what an existing alias already does.
+- **Shareable logic** — if the new alias needs code that's identical or
+  near-identical to part of an existing one, prefer extracting it into
+  a GVAR module (Avrae's `using()` import mechanism — see the
+  [Aliasing API docs](https://avrae.readthedocs.io/en/stable/aliasing/api.html#using-imports))
+  over copy-pasting it into both. Note this requires the GVAR to be
+  created in Avrae first, with its ID added to `gvars.json`.
+
+Flag anything found before writing the new alias's code, rather than
+creating it in isolation.
