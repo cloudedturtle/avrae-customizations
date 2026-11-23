@@ -123,3 +123,24 @@ Look for:
 
 Flag anything found before writing the new alias's code, rather than
 creating it in isolation.
+
+## Testing alias code before activating it
+
+Nothing in this repo is live in Avrae until its code is manually pasted
+into the Workshop editor and activated — auto-update is off (see top of
+this file), so a commit here does **not** update what Discord runs.
+Before telling the user an alias's code is ready, it can be test-run
+ad hoc in Discord without touching Workshop or its Active version:
+
+- If the alias's code produces an embed (i.e. it builds/returns an
+  `embed ...` command string, as every alias in this repo does), test it
+  with **`!tembed`**, not `!test`. `!test` only prints the raw returned
+  string as plain text; `!tembed` actually renders it as an embed, which
+  is the only way to see things like `-thumb`/`-image` actually load.
+- `&ARGS&` (and the other argument-parsing syntax like `%1%`) does not
+  reliably substitute when pasted ad hoc into `!test`/`!tembed` — it can
+  throw a syntax error. For ad hoc testing, replace `args = &ARGS&` with
+  a hardcoded literal, e.g. `args = ["set", "8"]`, instead of relying on
+  trailing command text to populate it.
+- Strip out any stateful calls (e.g. `set_uvar`) from the ad hoc test
+  copy so testing doesn't mutate saved uvars/gvars.
