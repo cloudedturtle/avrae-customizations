@@ -66,3 +66,29 @@ Rules:
 When creating a new alias, subalias, snippet, or GVAR, always create the
 matching files/folders in this structure — never place code files loose
 at the repo root or outside this layout.
+
+## Shared images
+
+`images/` (repo root) is a flat, shared folder for any image used by any
+alias, snippet, or collection in this repo — it's not scoped to a single
+collection. Files there are named descriptively, e.g.
+`triboar-book-club-collection-cover.webp`.
+
+```
+avrae-customizations/
+└── images/
+    └── <descriptive-name>.<ext>
+```
+
+Rules:
+
+- Any alias/snippet in any collection may reference any file in
+  `images/` — it is shared across the whole repo, not duplicated per
+  collection.
+- Images are referenced **only** via their `raw.githubusercontent.com`
+  URL, e.g.:
+  `https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/<file>`
+  Never use a relative path, a `github.com/.../blob/...` URL, or any
+  other host.
+- Do not nest `images/` under `collections/` — it stays a single
+  top-level folder.
