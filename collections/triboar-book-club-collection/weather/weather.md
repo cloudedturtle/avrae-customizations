@@ -48,7 +48,7 @@ since no 1d8 was rolled that call.
 
 ## Artwork
 
-Six of the eight results have a thumbnail, pulled from the shared
+All eight results have a thumbnail, pulled from the shared
 [`images/`](../../../images) folder via `raw.githubusercontent.com` URLs
 (see `THUMBS` in `weather.alias`):
 
@@ -56,15 +56,13 @@ Six of the eight results have a thumbnail, pulled from the shared
 | --- | --- | --- |
 | 1 | Clear skies | `clear-skies-thumb.webp` |
 | 2 | Low river mist | `low-river-mist-thumb.webp` |
-| 3 | Steady drizzle | — none yet |
+| 3 | Steady drizzle | `steady-drizzle-thumb.webp` |
 | 4 | Hard wind | `hard-wind-thumb.webp` |
 | 5 | Passing showers | `passing-showers-thumb.webp` |
 | 6 | Cold, soaking rain | `cold-soaking-rain-thumb.webp` |
-| 7 | Thunderstorm | — none yet |
+| 7 | Thunderstorm | `thunderstorm-thumb.webp` |
 | 8 | Unnatural stillness | `unnatural-stillness-thumb.webp` |
 
 No banner image is used for any result — Discord fixes the embed's
 width and the thumbnail's position regardless, so a banner only added
-vertical height without fixing text wrapping. Add entries to `THUMBS`
-the same way as new art is produced (results 3 and 7 are still
-outstanding).
+vertical height without fixing text wrapping.
