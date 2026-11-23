@@ -1,0 +1,52 @@
+<drac2>
+VAR = "dessarin_weather"
+
+W = {
+    1: ("Clear skies", "A cool breeze carries the smell of grass and river water. Travel is pleasant.", "None."),
+    2: ("Low river mist", "Fog gathers along the Dessarin and lingers in the hollows. Visibility is 60 feet until midmorning.", "Visibility 60 ft until midmorning."),
+    3: ("Steady drizzle", "Cloaks and packs grow damp; the trail turns slick. Tracking checks have disadvantage.", "Disadvantage on tracking checks."),
+    4: ("Hard wind", "Grass bends flat and dust blows across exposed roads. Ranged attacks beyond normal range have disadvantage.", "Disadvantage on ranged attacks beyond normal range."),
+    5: ("Passing showers", "Dark clouds sweep through, followed by brief sunlight. No travel penalty.", "None."),
+    6: ("Cold, soaking rain", "Ruts fill with water and streams run high. Travel through open country is at half speed.", "Half travel speed through open country."),
+    7: ("Thunderstorm", "Lightning strikes the hills while the river churns below. Visibility is 30 feet in heavy rain.", "Visibility 30 ft."),
+    8: ("Unnatural stillness", "The wind stops and birds fall silent. A distant rumble rolls across a cloudless sky. No travel penalty, but something large may be nearby.", "None. Something large may be nearby."),
+}
+
+args = &ARGS&
+cmd = args[0].lower() if args else "next"
+cur = int(get_uvar(VAR) or 0)
+
+rolls = ""
+status = ""
+
+if cmd == "show" and cur in W:
+    new = cur
+    status = "Current weather"
+elif cmd == "set" and len(args) > 1 and args[1].isdigit() and int(args[1]) in W:
+    new = int(args[1])
+    status = "Set by DM"
+elif cmd in ("new", "reroll") or cur not in W:
+    new = roll("1d8")
+    rolls = f"Fresh roll: 1d8 ({new})"
+    status = "New weather"
+else:
+    # Persistence: 1d6, on 1-3 the weather holds, on 4-6 roll a fresh 1d8
+    hold = roll("1d6")
+    if hold <= 3:
+        new = cur
+        rolls = f"Persistence: 1d6 ({hold}), weather holds"
+        status = "Weather unchanged"
+    else:
+        new = roll("1d8")
+        rolls = f"Persistence: 1d6 ({hold}), fresh 1d8 ({new})"
+        status = "Weather changed" if new != cur else "Weather unchanged (rerolled same)"
+
+set_uvar(VAR, str(new))
+t, d, m = W[new]
+
+out = f'embed -title "Dessarin Valley Weather" -desc "**{new}. {t}**\n{d}" -f "Effects|{m}" '
+if rolls:
+    out += f'-f "Rolls|{rolls}" '
+out += f'-color #6b8fa3 -footer "{status}"'
+return out
+</drac2>
