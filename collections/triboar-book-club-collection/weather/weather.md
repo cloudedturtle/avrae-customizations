@@ -48,10 +48,23 @@ since no 1d8 was rolled that call.
 
 ## Artwork
 
-Result 8 (Unnatural stillness) includes a thumbnail, pulled from the
-shared [`images/`](../../../images) folder via a `raw.githubusercontent.com`
-URL (see `THUMBS` in `weather.alias`). No banner image is used — Discord
-fixes the embed's width and the thumbnail's position regardless, so a
-banner only added vertical height without fixing text wrapping. Other
-results have no art yet — add entries to `THUMBS` the same way as new
-art is produced.
+Six of the eight results have a thumbnail, pulled from the shared
+[`images/`](../../../images) folder via `raw.githubusercontent.com` URLs
+(see `THUMBS` in `weather.alias`):
+
+| Roll | Weather | Thumbnail |
+| --- | --- | --- |
+| 1 | Clear skies | `clear-skies-thumb.webp` |
+| 2 | Low river mist | `low-river-mist-thumb.webp` |
+| 3 | Steady drizzle | — none yet |
+| 4 | Hard wind | `hard-wind-thumb.webp` |
+| 5 | Passing showers | `passing-showers-thumb.webp` |
+| 6 | Cold, soaking rain | `cold-soaking-rain-thumb.webp` |
+| 7 | Thunderstorm | — none yet |
+| 8 | Unnatural stillness | `unnatural-stillness-thumb.webp` |
+
+No banner image is used for any result — Discord fixes the embed's
+width and the thumbnail's position regardless, so a banner only added
+vertical height without fixing text wrapping. Add entries to `THUMBS`
+the same way as new art is produced (results 3 and 7 are still
+outstanding).

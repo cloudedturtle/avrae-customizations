@@ -13,6 +13,11 @@ W = {
 }
 
 THUMBS = {
+    1: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/clear-skies-thumb.webp",
+    2: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/low-river-mist-thumb.webp",
+    4: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/hard-wind-thumb.webp",
+    5: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/passing-showers-thumb.webp",
+    6: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/cold-soaking-rain-thumb.webp",
     8: "https://raw.githubusercontent.com/cloudedturtle/avrae-customizations/main/images/unnatural-stillness-thumb.webp",
 }
 
