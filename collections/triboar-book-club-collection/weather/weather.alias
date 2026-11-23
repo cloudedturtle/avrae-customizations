@@ -51,9 +51,12 @@ else:
 set_uvar(VAR, str(new))
 t, d, m = W[new]
 
-header = f"🎲 {die.dice} = {new} : {t}" if die else f"{new}. {t}"
+if die:
+    desc = f"**{t}**\n🎲 {die.dice} = {new}\n\n{d}"
+else:
+    desc = f"**{new}. {t}**\n{d}"
 
-out = f'embed -title "Dessarin Valley Weather" -desc "**{header}**\n{d}" -f "Effects|{m}" '
+out = f'embed -title "Dessarin Valley Weather" -desc "{desc}" -f "Effects|{m}" '
 if rolls:
     out += f'-f "Rolls|{rolls}" '
 if new in THUMBS:

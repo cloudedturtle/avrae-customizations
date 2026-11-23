@@ -30,10 +30,21 @@ the result between calls via a uvar (`dessarin_weather`).
 
 Outputs an embed with the current weather, flavor text, mechanical
 effect, and (when rolled) the dice results. When a fresh 1d8 is actually
-rolled this call (`new`/`reroll`, or persistence breaking), the header
-reads `🎲 1d8 (8) = 8 : Unnatural stillness` instead of the plain
-`8. Unnatural stillness` — `show`, `set`, and a held persistence result
-keep the plain form since no 1d8 was rolled that call.
+rolled this call (`new`/`reroll`, or persistence breaking), the
+description reads:
+
+```
+Unnatural stillness
+🎲 1d8 (8) = 8
+
+The wind stops and birds fall silent. ...
+```
+
+— the weather name is bold on its own line, the roll notation sits
+plain on the line below it, then a blank line before the flavor text.
+`show`, `set`, and a held persistence result keep the older plain form
+(`**8. Unnatural stillness**` followed directly by the flavor text)
+since no 1d8 was rolled that call.
 
 ## Artwork
 
